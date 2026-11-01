@@ -1,0 +1,5 @@
+// 顶层 build 文件：仅声明插件版本，依赖集中在 app/build.gradle
+plugins {
+    id 'com.android.application' version '7.4.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+}
