@@ -23,11 +23,14 @@ jobs:
         with:
           gradle-version: 7.5
 
+      - name: Show build version
+        run: grep -E "versionName|versionCode" app/build.gradle
+
       - name: Build debug APK
         run: gradle assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: car-controller-debug-apk
+          name: car-controller-v2.2-apk
           path: app/build/outputs/apk/debug/*.apk

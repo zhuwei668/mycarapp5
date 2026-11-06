@@ -10,13 +10,16 @@
     <!-- 旧系统扫描经典蓝牙需要定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:maxSdkVersion="30" />
 
-    <uses-feature android:name="android.hardware.bluetooth" android:required="true" />
+    <!-- 非必需，避免个别 ROM 因 feature 检查导致安装/启动异常 -->
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
 
     <application
+        android:name=".CarApp"
         android:allowBackup="true"
-        android:label="小车控制器"
+        android:label="小车控制器 v2.2"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+        android:theme="@android:style/Theme.Material.NoActionBar">
+        <!-- 只保留一个启动图标，避免与旧版"自检"图标混淆 -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

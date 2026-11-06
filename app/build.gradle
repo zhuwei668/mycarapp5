@@ -11,8 +11,8 @@ android {
         applicationId "com.example.carcontroller"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "2.2"
     }
 
     buildTypes {
@@ -30,7 +30,9 @@ android {
     }
 }
 
+// v2.1：零第三方 UI 依赖。
+// 之前 appcompat / material 会在 Manifest 里合并进 androidx.startup.InitializationProvider
+// 等 ContentProvider，它们在 Application 启动阶段（早于任何 Activity.onCreate）自动初始化，
+// 是开机期崩溃的潜在来源且无法被 Activity 内的崩溃捕获覆盖。这里全部移除。
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
 }
